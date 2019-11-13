@@ -25,8 +25,10 @@ app.use(bodyParser.json());
 app.use(cors());
 
 const car = require("./src/routes/api/car");
+const shop = require("./src/routes/api/shop");
 
 app.use("/api/car", car);
+app.use("/api/shop", shop);
 
 // Bodyparser
 app.use(express.urlencoded({ extended: false }));

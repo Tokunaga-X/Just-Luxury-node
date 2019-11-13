@@ -5,11 +5,11 @@ const uuid = require("uuid");
 const router = express.Router();
 
 // Use model
-const Items = require("../../models/Items");
+const Goods = require("../../models/Goods");
 
 // Get
 router.get("/", (req, res) => {
-  Items.find()
+  Goods.find()
     .then(response => {
       res.send(response);
     })
@@ -21,7 +21,7 @@ router.get("/", (req, res) => {
 // Add
 
 router.post("/add", async (req, res) => {
-  await Items.create(req.body)
+  await Goods.create(req.body)
     .then(response => {
       res.send(response);
     })
@@ -32,7 +32,7 @@ router.post("/add", async (req, res) => {
 
 // Delete
 router.delete("/delete/:id", async (req, res) => {
-  await Items.deleteOne({ _id: req.params.id })
+  await Goods.deleteOne({ _id: req.params.id })
     .then(info => {
       res.send(info);
     })
